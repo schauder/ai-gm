@@ -11,13 +11,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
-class DemoApplicationTests {
+class ConnectingToAiTests {
 
-	private static final Logger log = LoggerFactory.getLogger(DemoApplicationTests.class);
+	private static final Logger log = LoggerFactory.getLogger(ConnectingToAiTests.class);
 
 	private final ChatClient chatClient;
 
-	DemoApplicationTests(@Autowired ChatModel chatModel) {
+	ConnectingToAiTests(@Autowired ChatModel chatModel) {
 		chatClient = ChatClient.create(chatModel);
 	}
 
@@ -32,3 +32,4 @@ class DemoApplicationTests {
 	}
 
 }
+

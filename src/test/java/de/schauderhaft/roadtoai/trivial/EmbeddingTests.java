@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -65,7 +64,7 @@ class EmbeddingTests {
 	float distance(float[] a, float[] b) {
 		float sum = 0;
 		for (int i = 0; i < a.length; i++) {
-			sum += a[i]*b[i];
+			sum += a[i] * b[i];
 		}
 		return sum;
 	}

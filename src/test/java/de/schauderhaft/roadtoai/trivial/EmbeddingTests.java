@@ -23,7 +23,7 @@ class EmbeddingTests {
 	void obtainEmbeddingModel() {
 
 		float[] zwerg = model.embed("Zwerg");
-		float[] dwarv = model.embed("dwarf");
+		float[] dwarf = model.embed("dwarf");
 		float[] qm = model.embed("quantum mechanics");
 		float[] garbage = model.embed("aivrpasa;voni");
 
@@ -31,17 +31,17 @@ class EmbeddingTests {
 
 		int n = 5;
 		System.out.println(maxN(zwerg, n));
-		System.out.println(maxN(dwarv, n));
+		System.out.println(maxN(dwarf, n));
 		System.out.println(maxN(qm, n));
 		System.out.println(maxN(garbage, n));
 
 		System.out.println();
 
-		System.out.println("zwerg - dwarf: " + distance(zwerg, dwarv));
+		System.out.println("zwerg - dwarf: " + distance(zwerg, dwarf));
 		System.out.println("zwerg - qm: " + distance(zwerg, qm));
 		System.out.println("zwerg - garbage: " + distance(zwerg, garbage));
-		System.out.println("dwarf - qm: " + distance(dwarv, qm));
-		System.out.println("dwarf - garbage: " + distance(dwarv, garbage));
+		System.out.println("dwarf - qm: " + distance(dwarf, qm));
+		System.out.println("dwarf - garbage: " + distance(dwarf, garbage));
 		System.out.println("qm - garbage: " + distance(qm, garbage));
 	}
 

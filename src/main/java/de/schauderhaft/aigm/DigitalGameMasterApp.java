@@ -10,9 +10,11 @@ import java.util.Scanner;
 public class DigitalGameMasterApp implements CommandLineRunner {
 
 	private final ChatClient llm;
+	private final Memory memory;
 
-	public DigitalGameMasterApp(ChatClient llm) {
+	public DigitalGameMasterApp(ChatClient llm, Memory memory) {
 		this.llm = llm;
+		this.memory = memory;
 	}
 
 	@Override
@@ -33,6 +35,8 @@ public class DigitalGameMasterApp implements CommandLineRunner {
 				Please create the basic plot outline for an adventure dealing with %s
 				""".formatted(input)
 		).call().content();
+
+		memory.commitToMemory("basic_plot", basicPlot);
 
 		System.out.println(basicPlot);
 

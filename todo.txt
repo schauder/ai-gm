@@ -1,3 +1,2 @@
-- store information in "memory"
-- abstract from the client technology
 - use some kind of templating for prompts.
+- implement the actual round trip

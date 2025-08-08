@@ -1,0 +1,13 @@
+Start ollama:
+
+```
+ollama start
+```
+
+Run mistral
+
+```
+ollama run mistral
+```
+
+All tests should now work

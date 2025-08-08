@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.*;
 
-@SpringBootTest(classes = DemoApplication.class)
+@SpringBootTest(classes = DigitalGameMaster.class)
 class ConnectingToAiTests {
 
 	private static final Logger log = LoggerFactory.getLogger(ConnectingToAiTests.class);

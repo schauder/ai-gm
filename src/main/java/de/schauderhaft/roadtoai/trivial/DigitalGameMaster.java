@@ -1,7 +1,6 @@
 package de.schauderhaft.roadtoai.trivial;
 
 import org.postgresql.ds.PGSimpleDataSource;
-import org.postgresql.jdbc2.optional.SimpleDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -11,10 +10,10 @@ import org.testcontainers.utility.DockerImageName;
 import javax.sql.DataSource;
 
 @SpringBootApplication
-public class DemoApplication {
+public class DigitalGameMaster {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(DigitalGameMasterApp.class, args);
 	}
 
 	@Bean

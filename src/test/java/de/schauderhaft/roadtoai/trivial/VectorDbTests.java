@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import static org.assertj.core.api.Assertions.*;
 
-@SpringBootTest(classes = DemoApplication.class)
+@SpringBootTest(classes = DigitalGameMaster.class)
 public class VectorDbTests {
 
 	@Autowired

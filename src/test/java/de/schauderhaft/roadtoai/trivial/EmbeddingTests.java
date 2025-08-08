@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-@SpringBootTest(classes = DemoApplication.class)
+@SpringBootTest(classes = DigitalGameMaster.class)
 class EmbeddingTests {
 
 	@Autowired

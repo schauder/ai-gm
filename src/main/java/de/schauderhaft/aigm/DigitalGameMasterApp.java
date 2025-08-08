@@ -6,38 +6,33 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Scanner;
 
 @SpringBootApplication
-public class DigitalGameMasterApp implements CommandLineRunner {
+class DigitalGameMasterApp implements CommandLineRunner {
 
 	private final Engine engine;
 
-	public DigitalGameMasterApp(Engine engine) {
+	DigitalGameMasterApp(Engine engine) {
 		this.engine = engine;
 	}
 
 	@Override
 	public void run(String... args) {
-		welcome();
-	}
 
-	private void welcome() {
+		try (Scanner in = new Scanner(System.in)) {
 
-		Interaction interaction = engine.start();
-
-		System.out.println(interaction.output());
-
-		while (interaction instanceof InputRequest) {
-
-			Scanner in = new Scanner(System.in);
-			String input = in.nextLine();
-			in.close();
-
-			interaction = engine.process(input);
+			Interaction interaction = engine.start();
 
 			System.out.println(interaction.output());
 
+			while (interaction instanceof InputRequest) {
+
+				String input = in.nextLine();
+
+				interaction = engine.process(input);
+
+				System.out.println(interaction.output());
+
+			}
 		}
-
-		new End();
-
 	}
+
 }

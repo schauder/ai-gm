@@ -22,15 +22,17 @@ public class DigitalGameMaster {
 	DataSource dataSource() {
 		var image = DockerImageName.parse("pgvector/pgvector:pg16")
 				.asCompatibleSubstituteFor("postgres");
-		var pgVector = new PostgreSQLContainer<>(image);
-		pgVector.start();
+		PGSimpleDataSource ds;
+		try (var pgVector = new PostgreSQLContainer<>(image)) {
+			pgVector.start();
 
-		PGSimpleDataSource ds = new PGSimpleDataSource();
-		ds.setServerName(pgVector.getHost());
-		ds.setPortNumber(pgVector.getFirstMappedPort());
-		ds.setDatabaseName(pgVector.getDatabaseName());
-		ds.setUser(pgVector.getUsername());
-		ds.setPassword(pgVector.getPassword());
+			ds = new PGSimpleDataSource();
+			ds.setServerName(pgVector.getHost());
+			ds.setPortNumber(pgVector.getFirstMappedPort());
+			ds.setDatabaseName(pgVector.getDatabaseName());
+			ds.setUser(pgVector.getUsername());
+			ds.setPassword(pgVector.getPassword());
+		}
 
 		return ds;
 	}

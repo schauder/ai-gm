@@ -1,7 +1,11 @@
 package de.schauderhaft.aigm;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.prompt.Prompt;
+import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 @Component
 class Engine {
@@ -39,7 +43,7 @@ class Engine {
 				String basicPlot = callLLM(llm, """
 						You are a dungeon master! You are going to play a single shot adventure with one player.
 						Please create the basic plot outline for an adventure dealing with %s
-						""".formatted(input));
+						""".formatted(input), Map.of("input", input));
 
 				memory.commitToMemory("basic_plot", basicPlot);
 
@@ -48,11 +52,11 @@ class Engine {
 						
 						This is the basic plot outline you have: 
 						===
-						%s
+						{input}
 						===
 						
 						Describe the initial scene to the players.
-						""".formatted(basicPlot));
+						""".formatted(basicPlot), Map.of("input", input));
 
 				return new InputRequest(initialScene + "\n\n What do you want to do?");
 			}
@@ -63,19 +67,24 @@ class Engine {
 				String newPrompt = State.callLLM(llm, """
 						Here is what the players want to do:
 						===
-						%s
+						{input}
 						===
 						
 						Describe what happens to the players.
-						""".formatted(input));
+						""", Map.of("input", input));
 
 				return new InputRequest(newPrompt + "\n\n What do you want to do?");
 			}
 		};
 
+
 		abstract Interaction process(ChatClient llm, Memory memory, String input);
 
-		private static String callLLM(ChatClient llm, String prompt) {
+		private static String callLLM(ChatClient llm, String promptTemplateString, Map<String, Object> templateVariables) {
+
+			PromptTemplate promptTemplate = new PromptTemplate(promptTemplateString);
+			Prompt prompt = promptTemplate.create(templateVariables);
+
 			return llm.prompt(prompt).call().content();
 		}
 	}

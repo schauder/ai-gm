@@ -1,6 +1,5 @@
 package de.schauderhaft.aigm;
 
-import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -37,6 +36,8 @@ public class DigitalGameMasterApp implements CommandLineRunner {
 			System.out.println(interaction.output());
 
 		}
+
+		new End();
 
 	}
 }

@@ -27,8 +27,8 @@ public class DigitalGameMaster {
 			pgVector.start();
 
 			ds = new PGSimpleDataSource();
-			ds.setServerName(pgVector.getHost());
-			ds.setPortNumber(pgVector.getFirstMappedPort());
+			ds.setServerNames(new String[]{pgVector.getHost()});
+			ds.setPortNumbers(new int[]{pgVector.getFirstMappedPort()});
 			ds.setDatabaseName(pgVector.getDatabaseName());
 			ds.setUser(pgVector.getUsername());
 			ds.setPassword(pgVector.getPassword());

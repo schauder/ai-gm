@@ -1,4 +1,4 @@
-package de.schauderhaft.roadtoai.trivial;
+package de.schauderhaft.aigm;
 
 import org.postgresql.ds.PGSimpleDataSource;
 import org.springframework.ai.chat.client.ChatClient;
@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 public class DigitalGameMaster {
 
 	public static void main(String[] args) {
-		SpringApplication.run(de.schauderhaft.roadtoai.trivial.DigitalGameMasterApp.class, args);
+		SpringApplication.run(DigitalGameMasterApp.class, args);
 	}
 
 	@Bean

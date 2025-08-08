@@ -1,4 +1,4 @@
-package de.schauderhaft.roadtoai.trivial;
+package de.schauderhaft.aigm;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.*;
 
-@SpringBootTest(classes = de.schauderhaft.roadtoai.trivial.DigitalGameMaster.class)
+@SpringBootTest(classes = DigitalGameMaster.class)
 class ConnectingToAiTests {
 
 	private static final Logger log = LoggerFactory.getLogger(ConnectingToAiTests.class);

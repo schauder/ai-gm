@@ -1,4 +1,4 @@
-package de.schauderhaft.roadtoai.trivial;
+package de.schauderhaft.aigm;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

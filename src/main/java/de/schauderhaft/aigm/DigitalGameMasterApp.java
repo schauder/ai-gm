@@ -1,4 +1,4 @@
-package de.schauderhaft.roadtoai.trivial;
+package de.schauderhaft.aigm;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.boot.CommandLineRunner;

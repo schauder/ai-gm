@@ -4,7 +4,6 @@ import org.postgresql.ds.PGSimpleDataSource;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.testcontainers.containers.PostgreSQLContainer;
@@ -16,7 +15,7 @@ import javax.sql.DataSource;
 public class DigitalGameMaster {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DigitalGameMasterApp.class, args);
+		SpringApplication.run(de.schauderhaft.roadtoai.trivial.DigitalGameMasterApp.class, args);
 	}
 
 	@Bean

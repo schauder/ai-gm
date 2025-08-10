@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.model.ChatModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.*;
@@ -17,7 +16,7 @@ class ConnectingToAiTests {
 
 	private final ChatClient chatClient;
 
-	ConnectingToAiTests(@Autowired ChatModel chatModel) {
+	ConnectingToAiTests(ChatModel chatModel) {
 		chatClient = ChatClient.create(chatModel);
 	}
 
